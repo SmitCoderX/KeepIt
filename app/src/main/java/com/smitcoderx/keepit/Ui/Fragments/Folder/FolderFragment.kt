@@ -5,7 +5,9 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import com.smitcoderx.keepit.R
 import com.smitcoderx.keepit.databinding.FragmentFolderBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class FolderFragment : Fragment(R.layout.fragment_folder) {
 
     private lateinit var binding: FragmentFolderBinding

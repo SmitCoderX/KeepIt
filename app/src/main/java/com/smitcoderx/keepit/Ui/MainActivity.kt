@@ -3,7 +3,9 @@ package com.smitcoderx.keepit.Ui
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.smitcoderx.keepit.databinding.ActivityMainBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding

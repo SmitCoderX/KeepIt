@@ -5,8 +5,10 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import com.smitcoderx.keepit.R
 import com.smitcoderx.keepit.databinding.FragmentHomeBinding
+import dagger.hilt.android.AndroidEntryPoint
 
-class HomeFragment: Fragment(R.layout.fragment_home) {
+@AndroidEntryPoint
+class HomeFragment : Fragment(R.layout.fragment_home) {
 
     private lateinit var binding: FragmentHomeBinding
 

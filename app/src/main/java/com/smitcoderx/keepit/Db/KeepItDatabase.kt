@@ -1,0 +1,15 @@
+package com.smitcoderx.keepit.Db
+
+import androidx.room.Database
+import androidx.room.RoomDatabase
+import com.smitcoderx.keepit.Model.Notes
+
+@Database(
+    entities = [Notes::class],
+    version = 1
+)
+
+abstract class KeepItDatabase : RoomDatabase() {
+
+    abstract fun keepitDao(): KeepItDao
+}

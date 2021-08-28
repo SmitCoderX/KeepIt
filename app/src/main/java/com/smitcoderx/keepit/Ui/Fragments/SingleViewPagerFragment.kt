@@ -9,7 +9,9 @@ import com.smitcoderx.keepit.R
 import com.smitcoderx.keepit.Ui.Fragments.Folder.FolderFragment
 import com.smitcoderx.keepit.Ui.Fragments.Home.HomeFragment
 import com.smitcoderx.keepit.databinding.FragmentSingleViewPagerBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class SingleViewPagerFragment : Fragment(R.layout.fragment_single_view_pager) {
 
     private lateinit var binding: FragmentSingleViewPagerBinding
