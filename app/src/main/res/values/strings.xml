@@ -5,4 +5,6 @@
     <string name="folderimage">FolderImage</string>
     <string name="add_folder">Add Folder</string>
     <string name="add_note">Add Note</string>
+    <string name="title">Title..</string>
+    <string name="add_your_description_here">Add your Description here..</string>
 </resources>

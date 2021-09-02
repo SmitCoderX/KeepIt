@@ -7,12 +7,25 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.smitcoderx.keepit.Model.Notes
 import com.smitcoderx.keepit.databinding.ItemHomeLayoutBinding
+import javax.inject.Inject
 
-class HomeAdapter : RecyclerView.Adapter<HomeAdapter.HomeViewHolder>() {
+class HomeAdapter @Inject constructor(private val listener: SetOnClick) :
+    RecyclerView.Adapter<HomeAdapter.HomeViewHolder>() {
 
     inner class HomeViewHolder(private val binding: ItemHomeLayoutBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
+        init {
+            binding.root.setOnClickListener {
+                val position = adapterPosition
+                if (position != RecyclerView.NO_POSITION) {
+                    val item = differ.currentList[position]
+                    if (item != null) {
+                        listener.onClick(item)
+                    }
+                }
+            }
+        }
 
         fun bind(notes: Notes) {
             binding.apply {
@@ -51,4 +64,8 @@ class HomeAdapter : RecyclerView.Adapter<HomeAdapter.HomeViewHolder>() {
     }
 
     val differ = AsyncListDiffer(this, differCallback)
+
+    interface SetOnClick {
+        fun onClick(notes: Notes)
+    }
 }

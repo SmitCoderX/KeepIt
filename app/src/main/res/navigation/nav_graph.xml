@@ -3,16 +3,28 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/singleViewPagerFragment">
+    app:startDestination="@id/homeFragment">
 
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.smitcoderx.keepit.Ui.Fragments.Home.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_singleFragment"
+            app:destination="@id/singleFragment" />
+    </fragment>
     <fragment
-        android:id="@+id/singleViewPagerFragment"
-        android:name="com.smitcoderx.keepit.Ui.Fragments.SingleViewPagerFragment"
-        android:label="fragment_single_view_pager"
-        tools:layout="@layout/fragment_single_view_pager" />
+        android:id="@+id/singleFragment"
+        android:name="com.smitcoderx.keepit.Ui.Fragments.Single.SingleFragment"
+        android:label="SingleFragment" >
+        <argument
+            android:name="notes"
+            app:argType="com.smitcoderx.keepit.Model.Notes"
+            app:nullable="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/folderFragment"
+        android:name="com.smitcoderx.keepit.Ui.Fragments.Folder.FolderFragment"
+        android:label="FolderFragment" />
 </navigation>

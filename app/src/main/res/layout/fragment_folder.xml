@@ -4,12 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/black">
+    android:background="@color/bg_color"
+    tools:context=".Ui.Fragments.Folder.FolderFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/co_folder"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_gravity="center">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_folder"
@@ -18,6 +20,8 @@
             android:orientation="vertical"
             android:overScrollMode="never"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:spanCount="2"
             tools:listitem="@layout/item_folder_layout" />
 
@@ -26,7 +30,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="No Notes Add Now!!!"
+            android:text="No Folders Add Now!!!"
             android:textColor="@color/white"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"

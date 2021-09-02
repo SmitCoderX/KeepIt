@@ -4,14 +4,16 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.smitcoderx.keepit.Adapter.HomeAdapter
+import com.smitcoderx.keepit.Model.Notes
 import com.smitcoderx.keepit.R
 import com.smitcoderx.keepit.Ui.KeepItViewModel
 import com.smitcoderx.keepit.databinding.FragmentHomeBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class HomeFragment : Fragment(R.layout.fragment_home) {
+class HomeFragment : Fragment(R.layout.fragment_home), HomeAdapter.SetOnClick {
 
     private lateinit var binding: FragmentHomeBinding
     private val viewModel by viewModels<KeepItViewModel>()
@@ -20,7 +22,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentHomeBinding.bind(view)
 
-        val homeAdapter = HomeAdapter()
+        val homeAdapter = HomeAdapter(this)
         viewModel.getAllNotes().observe(viewLifecycleOwner, { notesList ->
             if (notesList.isNullOrEmpty()) {
                 binding.rvHome.visibility = View.INVISIBLE
@@ -33,7 +35,11 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         })
 
         binding.fabNote.setOnClickListener {
-            viewModel.saveNote("Hello", "Dekh le", "Top", "Check", "")
+            findNavController().navigate(
+                HomeFragmentDirections.actionHomeFragmentToSingleFragment(
+                    null
+                )
+            )
         }
 
         binding.rvHome.apply {
@@ -42,5 +48,11 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         }
 
     }
+
+    override fun onClick(notes: Notes) {
+        val action = HomeFragmentDirections.actionHomeFragmentToSingleFragment(notes)
+        findNavController().navigate(action)
+    }
+
 
 }

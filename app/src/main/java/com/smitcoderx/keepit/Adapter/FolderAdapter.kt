@@ -5,9 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import com.smitcoderx.keepit.Model.Folder
-import com.smitcoderx.keepit.R
 import com.smitcoderx.keepit.databinding.ItemFolderLayoutBinding
 
 class FolderAdapter : RecyclerView.Adapter<FolderAdapter.FolderViewHolder>() {
@@ -17,10 +15,6 @@ class FolderAdapter : RecyclerView.Adapter<FolderAdapter.FolderViewHolder>() {
 
         fun bind(folder: Folder) {
             binding.apply {
-                Glide.with(itemView)
-                    .load(R.drawable.ic_keep_folder)
-                    .into(ivFolder)
-
                 tvFolderName.text = folder.folderName
             }
         }
