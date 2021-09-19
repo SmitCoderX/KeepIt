@@ -4,11 +4,13 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.google.android.material.snackbar.Snackbar
 import com.smitcoderx.keepit.Adapter.FolderAdapter
 import com.smitcoderx.keepit.Model.Folder
 import com.smitcoderx.keepit.R
 import com.smitcoderx.keepit.Ui.KeepItViewModel
+import com.smitcoderx.keepit.Utils.Constants.FOLDER_NAME
 import com.smitcoderx.keepit.databinding.FragmentFolderBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -23,6 +25,9 @@ class FolderFragment : Fragment(R.layout.fragment_folder), FolderAdapter.SetOnFo
         binding = FragmentFolderBinding.bind(view)
 
         val folderAdapter = FolderAdapter(this)
+
+
+
         viewModel.getAllFolder().observe(viewLifecycleOwner, { folderList ->
             if (folderList.isNullOrEmpty()) {
                 binding.rvFolder.visibility = View.INVISIBLE
@@ -34,8 +39,15 @@ class FolderFragment : Fragment(R.layout.fragment_folder), FolderAdapter.SetOnFo
             }
         })
 
+        findNavController().currentBackStackEntry?.savedStateHandle?.getLiveData<String>(FOLDER_NAME)
+            ?.observe(
+                viewLifecycleOwner, {
+                    Snackbar.make(binding.rootFolder, "$it Created", Snackbar.LENGTH_SHORT).show()
+                }
+            )
+
         binding.fabFolder.setOnClickListener {
-            viewModel.insertFolder("Check1")
+            findNavController().navigate(FolderFragmentDirections.actionFolderFragmentToCreateFolderFragment())
         }
 
         binding.rvFolder.apply {

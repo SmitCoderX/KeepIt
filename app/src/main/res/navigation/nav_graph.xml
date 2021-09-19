@@ -26,5 +26,14 @@
     <fragment
         android:id="@+id/folderFragment"
         android:name="com.smitcoderx.keepit.Ui.Fragments.Folder.FolderFragment"
-        android:label="FolderFragment" />
+        android:label="FolderFragment" >
+        <action
+            android:id="@+id/action_folderFragment_to_createFolderFragment"
+            app:destination="@id/createFolderFragment" />
+    </fragment>
+    <dialog
+        android:id="@+id/createFolderFragment"
+        android:name="com.smitcoderx.keepit.Ui.Fragments.Folder.CreateFolderFragment"
+        android:label="fragment_create_folder"
+        tools:layout="@layout/fragment_create_folder" />
 </navigation>
