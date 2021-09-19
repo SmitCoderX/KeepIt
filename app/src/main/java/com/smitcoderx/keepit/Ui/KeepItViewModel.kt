@@ -18,7 +18,13 @@ class KeepItViewModel @Inject constructor(
     fun getAllFolder() = repostiory.getAllFolder()
 
     // Save Notes
-    fun saveNote(title: String, desc: String, priority: String, type: String, folderName: String) =
+    fun saveNote(
+        title: String,
+        desc: String,
+        priority: String,
+        type: String,
+        folderName: String
+    ) =
         viewModelScope.launch {
             val note = Notes(
                 null,

@@ -7,6 +7,10 @@
         android:title="@string/home" />
 
     <item
+        android:id="@+id/placeholder"
+        android:title="" />
+
+    <item
         android:id="@+id/folderFragment"
         android:icon="@drawable/ic_keep_folder"
         android:title="@string/folder" />

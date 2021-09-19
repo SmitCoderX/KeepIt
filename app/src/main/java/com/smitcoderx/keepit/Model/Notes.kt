@@ -16,13 +16,14 @@ import java.util.*
 data class Notes(
     @PrimaryKey(autoGenerate = true)
     val id: Int? = null,
-    val title: String?,
-    val description: String?,
-    val priority: String?,
-    val folderName: String?,
-    val type: String?,
+    val title: String? = "",
+    val description: String? = "",
+    val priority: String? = "",
+    val folderName: String? = "",
+    val type: String? = "",
     val date: String = getDateAndTime()
 ) : Parcelable {
+
     companion object {
         @SuppressLint("SimpleDateFormat")
         private fun getDateAndTime(): String {

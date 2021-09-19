@@ -5,7 +5,6 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-import com.google.android.material.snackbar.Snackbar
 import com.smitcoderx.keepit.Adapter.HomeAdapter
 import com.smitcoderx.keepit.Model.Notes
 import com.smitcoderx.keepit.R
@@ -35,13 +34,13 @@ class HomeFragment : Fragment(R.layout.fragment_home), HomeAdapter.SetOnNoteClic
             }
         })
 
-        binding.fabNote.setOnClickListener {
+      /*  binding.fabNote.setOnClickListener {
             findNavController().navigate(
                 HomeFragmentDirections.actionHomeFragmentToSingleFragment(
                     Notes(null, "", "", "", "", "", "")
                 )
             )
-        }
+        }*/
 
         binding.rvHome.apply {
             setHasFixedSize(true)
@@ -51,7 +50,9 @@ class HomeFragment : Fragment(R.layout.fragment_home), HomeAdapter.SetOnNoteClic
     }
 
     override fun setOnNoteClick(notes: Notes) {
-        Snackbar.make(binding.rootHome, notes.title.toString(), Snackbar.LENGTH_SHORT).show()
+        findNavController().navigate(
+            HomeFragmentDirections.actionHomeFragmentToSingleFragment(notes)
+        )
     }
 
 }

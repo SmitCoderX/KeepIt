@@ -41,7 +41,7 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+    <!--<com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
         android:id="@+id/fab_Folder"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -51,9 +51,12 @@
         android:textAllCaps="false"
         android:textColor="@color/white"
         app:icon="@drawable/ic_add"
+        android:layout_gravity="bottom|center"
         app:iconTint="@color/white"
-        app:layout_anchor="@id/co_folder"
+        android:gravity="bottom|center"
+        app:rippleColor="@color/transparent_black"
         app:layout_anchorGravity="bottom|center"
-        app:layout_behavior="@string/hide_bottom_view_on_scroll_behavior" />
+        app:layout_behavior="@string/hide_bottom_view_on_scroll_behavior" />-->
+
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
