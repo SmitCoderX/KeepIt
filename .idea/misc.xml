@@ -10,7 +10,8 @@
         <entry key="..\:/AndroidProjects/BucketList/app/src/main/res/drawable/ic_notes.xml" value="0.24166666666666667" />
         <entry key="..\:/AndroidProjects/BucketList/app/src/main/res/drawable/rounded_notes_bg.xml" value="0.24351851851851852" />
         <entry key="..\:/AndroidProjects/BucketList/app/src/main/res/layout-small/item_folder_layout.xml" value="0.22" />
-        <entry key="..\:/AndroidProjects/BucketList/app/src/main/res/layout/activity_main.xml" value="0.16" />
+        <entry key="..\:/AndroidProjects/BucketList/app/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="..\:/AndroidProjects/BucketList/app/src/main/res/layout/custom_toolbar.xml" value="0.18" />
         <entry key="..\:/AndroidProjects/BucketList/app/src/main/res/layout/fragment_create_folder.xml" value="0.22" />
         <entry key="..\:/AndroidProjects/BucketList/app/src/main/res/layout/fragment_folder.xml" value="0.22" />
         <entry key="..\:/AndroidProjects/BucketList/app/src/main/res/layout/fragment_home.xml" value="0.33" />
