@@ -20,7 +20,7 @@ data class Notes(
     val description: String? = "",
     val priority: String? = "",
     val folderName: String? = "",
-    val type: String? = "",
+    val label: String? = "",
     val date: String = getDateAndTime()
 ) : Parcelable {
 

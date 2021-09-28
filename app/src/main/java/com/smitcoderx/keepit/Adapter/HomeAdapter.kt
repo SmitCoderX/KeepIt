@@ -24,6 +24,18 @@ class HomeAdapter(private val listener: SetOnNoteClick) :
                     }
                 }
             }
+
+            binding.root.setOnLongClickListener {
+                val position = adapterPosition
+                if (position != RecyclerView.NO_POSITION) {
+                    val item = differ.currentList[position]
+                    if (item != null) {
+                        listener.setOnNoteLongClick(item)
+                    }
+                }
+                true
+            }
+
         }
 
         fun bind(notes: Notes) {
@@ -31,7 +43,7 @@ class HomeAdapter(private val listener: SetOnNoteClick) :
                 tvNoteTitle.text = notes.title
                 tvNoteDesc.text = notes.description
                 tvNoteDate.text = notes.date
-                tvNoteType.text = notes.type
+                tvNoteType.text = notes.label
             }
         }
     }
@@ -68,6 +80,7 @@ class HomeAdapter(private val listener: SetOnNoteClick) :
 
     interface SetOnNoteClick {
         fun setOnNoteClick(notes: Notes)
+        fun setOnNoteLongClick(notes: Notes)
     }
 
 }

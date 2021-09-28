@@ -9,6 +9,7 @@ import com.smitcoderx.keepit.Adapter.HomeAdapter
 import com.smitcoderx.keepit.Model.Notes
 import com.smitcoderx.keepit.R
 import com.smitcoderx.keepit.Ui.KeepItViewModel
+import com.smitcoderx.keepit.Utils.Constants.getSuccessDarkToast
 import com.smitcoderx.keepit.databinding.FragmentHomeBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -34,18 +35,19 @@ class HomeFragment : Fragment(R.layout.fragment_home), HomeAdapter.SetOnNoteClic
             }
         })
 
-      /*  binding.fabNote.setOnClickListener {
-            findNavController().navigate(
-                HomeFragmentDirections.actionHomeFragmentToSingleFragment(
-                    Notes(null, "", "", "", "", "", "")
-                )
-            )
-        }*/
-
         binding.rvHome.apply {
             setHasFixedSize(true)
             adapter = homeAdapter
         }
+    }
+
+    override fun setOnNoteLongClick(notes: Notes) {
+        viewModel.deleteNote(notes)
+        getSuccessDarkToast(
+            requireActivity(),
+            "Deleted",
+            "${notes.title} Deleted"
+        )
 
     }
 

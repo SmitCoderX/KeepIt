@@ -22,7 +22,7 @@ class KeepItViewModel @Inject constructor(
         title: String,
         desc: String,
         priority: String,
-        type: String,
+        label: String,
         folderName: String
     ) =
         viewModelScope.launch {
@@ -32,7 +32,7 @@ class KeepItViewModel @Inject constructor(
                 desc,
                 priority,
                 folderName,
-                type
+                label
             )
             repostiory.insertNote(note)
         }
@@ -43,7 +43,7 @@ class KeepItViewModel @Inject constructor(
         title: String,
         desc: String,
         priority: String,
-        type: String,
+        label: String,
         folderName: String
     ) =
         viewModelScope.launch {
@@ -53,7 +53,7 @@ class KeepItViewModel @Inject constructor(
                 desc,
                 priority,
                 folderName,
-                type
+                label
             )
 
             repostiory.updateNote(notes)

@@ -7,7 +7,7 @@ import com.smitcoderx.keepit.Model.Notes
 
 @Database(
     entities = [Notes::class, Folder::class],
-    version = 2
+    version = 1
 )
 
 abstract class KeepItDatabase : RoomDatabase() {

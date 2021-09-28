@@ -31,10 +31,17 @@
         <action
             android:id="@+id/action_folderFragment_to_createFolderFragment"
             app:destination="@id/createFolderFragment" />
+        <action
+            android:id="@+id/action_folderFragment_to_singleFolder"
+            app:destination="@id/singleFolder" />
     </fragment>
     <dialog
         android:id="@+id/createFolderFragment"
         android:name="com.smitcoderx.keepit.Ui.Fragments.Folder.CreateFolderFragment"
         android:label="fragment_create_folder"
         tools:layout="@layout/fragment_create_folder" />
+    <fragment
+        android:id="@+id/singleFolder"
+        android:name="com.smitcoderx.keepit.Ui.Fragments.FolderSingle.SingleFolder"
+        android:label="SingleFolder" />
 </navigation>

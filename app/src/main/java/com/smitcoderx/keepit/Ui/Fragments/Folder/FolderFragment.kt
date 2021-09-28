@@ -45,17 +45,24 @@ class FolderFragment : Fragment(R.layout.fragment_folder), FolderAdapter.SetOnFo
                 }
             )
 
-       /* binding.fabFolder.setOnClickListener {
-            findNavController().navigate(FolderFragmentDirections.actionFolderFragmentToCreateFolderFragment())
-        }*/
-
         binding.rvFolder.apply {
             setHasFixedSize(true)
             adapter = folderAdapter
         }
     }
 
+    override fun setOnFolderLongClick(folder: Folder) {
+        viewModel.deleteFolder(folder)
+        getSuccessDarkToast(
+            requireActivity(),
+            "Deleted",
+            "${folder.folderName} Deleted"
+        )
+    }
+
     override fun setOnFolderClick(folder: Folder) {
         getSuccessDarkToast(requireActivity(), folder.folderName.toString(), "Folder Clicked")
+        val action = FolderFragmentDirections.actionFolderFragmentToSingleFolder()
+        findNavController().navigate(action)
     }
 }

@@ -6,9 +6,7 @@ import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.smitcoderx.keepit.Model.Folder
-import com.smitcoderx.keepit.Model.Notes
 import com.smitcoderx.keepit.databinding.ItemFolderLayoutBinding
-import com.smitcoderx.keepit.databinding.ItemNotesLayoutBinding
 
 class FolderAdapter(private val listener: SetOnFolderClick) :
     RecyclerView.Adapter<FolderAdapter.FolderViewHolder>() {
@@ -27,6 +25,18 @@ class FolderAdapter(private val listener: SetOnFolderClick) :
                     }
                 }
             }
+
+            binding.root.setOnLongClickListener {
+                val position = adapterPosition
+                if (position != RecyclerView.NO_POSITION) {
+                    val item = differ.currentList[position]
+                    if (item != null) {
+                        listener.setOnFolderLongClick(item)
+                    }
+                }
+                true
+            }
+
         }
 
         fun bind(folder: Folder) {
@@ -72,6 +82,7 @@ class FolderAdapter(private val listener: SetOnFolderClick) :
 
     interface SetOnFolderClick {
         fun setOnFolderClick(folder: Folder)
+        fun setOnFolderLongClick(folder: Folder)
     }
 
 }
