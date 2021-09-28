@@ -34,7 +34,6 @@ class MainActivity : AppCompatActivity() {
                 binding.toolbar.etSearch.visibility = View.GONE
                 isOpen = false
             }
-
         }
 
 
@@ -52,15 +51,21 @@ class MainActivity : AppCompatActivity() {
 
             binding.fab.setOnClickListener {
                 if (destination.id == R.id.homeFragment) {
-                    navController.navigate(HomeFragmentDirections.actionHomeFragmentToSingleFragment(
-                        Notes()
-                    ))
+                    navController.navigate(
+                        HomeFragmentDirections.actionHomeFragmentToSingleFragment(
+                            Notes()
+                        )
+                    )
                 } else {
                     navController.navigate(R.id.createFolderFragment)
                 }
             }
 
-            if (destination.id == R.id.singleFragment) {
+            binding.toolbar.circleImageView.setOnClickListener {
+                navController.navigate(R.id.profileFragment)
+            }
+
+            if (destination.id == R.id.singleFragment || destination.id == R.id.profileFragment) {
                 binding.apply {
                     bottomNav.visibility = View.GONE
                     bottomAppBar.visibility = View.GONE

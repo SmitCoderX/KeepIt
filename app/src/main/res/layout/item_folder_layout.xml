@@ -8,7 +8,8 @@
     android:foreground="?attr/selectableItemBackground"
     android:background="@drawable/rounded_notes_bg"
     android:fitsSystemWindows="true"
-    android:padding="10dp">
+    android:padding="10dp"
+    tools:ignore="UnusedAttribute">
 
 
     <ImageView

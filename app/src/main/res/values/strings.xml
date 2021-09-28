@@ -16,4 +16,5 @@
     <string name="close_folder">Close Folder</string>
     <string name="add">Add</string>
     <string name="search_here">Search Here...</string>
+    <string name="profileimage">ProfileImage</string>
 </resources>

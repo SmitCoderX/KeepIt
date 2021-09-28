@@ -35,7 +35,6 @@ class HomeAdapter(private val listener: SetOnNoteClick) :
                 }
                 true
             }
-
         }
 
         fun bind(notes: Notes) {

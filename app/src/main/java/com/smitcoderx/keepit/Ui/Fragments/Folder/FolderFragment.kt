@@ -26,7 +26,6 @@ class FolderFragment : Fragment(R.layout.fragment_folder), FolderAdapter.SetOnFo
 
         val folderAdapter = FolderAdapter(this)
 
-
         viewModel.getAllFolder().observe(viewLifecycleOwner, { folderList ->
             if (folderList.isNullOrEmpty()) {
                 binding.rvFolder.visibility = View.INVISIBLE
