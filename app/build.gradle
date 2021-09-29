@@ -90,6 +90,9 @@ dependencies {
 
     // Motion Toast
     implementation "com.github.Spikeysanju:MotionToast:$motionToast_version"
+
+    // ExpandableCardView
+    implementation 'com.github.cachapa:ExpandableLayout:2.9.2'
 }
 
 

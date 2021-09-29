@@ -46,6 +46,6 @@
         android:label="SingleFolder" />
     <fragment
         android:id="@+id/profileFragment"
-        android:name="com.smitcoderx.keepit.Ui.Fragments.ProfileFragment"
+        android:name="com.smitcoderx.keepit.Ui.Fragments.Profile.ProfileFragment"
         android:label="ProfileFragment" />
 </navigation>

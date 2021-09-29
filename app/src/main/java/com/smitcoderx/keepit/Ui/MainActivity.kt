@@ -1,6 +1,8 @@
 package com.smitcoderx.keepit.Ui
 
 import android.os.Bundle
+import android.transition.AutoTransition
+import android.transition.TransitionManager
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.NavHostFragment
@@ -15,7 +17,6 @@ import dagger.hilt.android.AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
-    private var isOpen = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,12 +28,18 @@ class MainActivity : AppCompatActivity() {
 
         val ivSearch = binding.toolbar.ivSearch
         ivSearch.setOnClickListener {
-            if (!isOpen) {
+            if (binding.toolbar.etSearch.visibility == View.GONE) {
+                TransitionManager.beginDelayedTransition(
+                    binding.toolbar.customToolbar,
+                    AutoTransition()
+                )
                 binding.toolbar.etSearch.visibility = View.VISIBLE
-                isOpen = true
             } else {
+                TransitionManager.beginDelayedTransition(
+                    binding.toolbar.customToolbar,
+                    AutoTransition()
+                )
                 binding.toolbar.etSearch.visibility = View.GONE
-                isOpen = false
             }
         }
 
