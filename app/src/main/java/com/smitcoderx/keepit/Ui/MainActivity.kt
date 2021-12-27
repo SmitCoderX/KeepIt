@@ -85,6 +85,15 @@ class MainActivity : AppCompatActivity() {
                     fab.visibility = View.VISIBLE
                 }
             }
+
+            if (destination.id == R.id.loginFragment) {
+                binding.apply {
+                    bottomNav.visibility = View.GONE
+                    bottomAppBar.visibility = View.GONE
+                    fab.visibility = View.GONE
+                    toolbar.visibility = View.GONE
+                }
+            }
         }
 
     }

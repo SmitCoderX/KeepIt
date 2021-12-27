@@ -1,10 +1,15 @@
 package com.smitcoderx.keepit.Ui
 
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+//import com.google.firebase.auth.AuthCredential
 import com.smitcoderx.keepit.Model.Folder
 import com.smitcoderx.keepit.Model.Notes
+import com.smitcoderx.keepit.Model.User
 import com.smitcoderx.keepit.Repository.KeepItRepository
+import com.smitcoderx.keepit.Utils.ResponseState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -16,6 +21,9 @@ class KeepItViewModel @Inject constructor(
 
     fun getAllNotes() = repostiory.getAllNotes()
     fun getAllFolder() = repostiory.getAllFolder()
+    private var _authenticateUserLiveData: MutableLiveData<User> = MutableLiveData()
+    val authenticatedUserLiveData: LiveData<User> get() = _authenticateUserLiveData
+    var createdUserLiveData = MutableLiveData<User>()
 
     // Save Notes
     fun saveNote(
@@ -88,4 +96,12 @@ class KeepItViewModel @Inject constructor(
     fun deleteFolder(folder: Folder) = viewModelScope.launch {
         repostiory.deleteFolder(folder)
     }
+
+  /*  fun signInWithGoogle(googleAuthCredential: AuthCredential) {
+        _authenticateUserLiveData = repostiory.firebaseSignInWithGoogle(googleAuthCredential)
+    }
+
+    fun createUser(user: User) {
+        createdUserLiveData = repostiory.createUserIfNotExists(user)
+    }*/
 }

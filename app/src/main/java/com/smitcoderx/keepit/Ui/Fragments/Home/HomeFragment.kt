@@ -56,5 +56,5 @@ class HomeFragment : Fragment(R.layout.fragment_home), HomeAdapter.SetOnNoteClic
             HomeFragmentDirections.actionHomeFragmentToSingleFragment(notes)
         )
     }
-
+    
 }

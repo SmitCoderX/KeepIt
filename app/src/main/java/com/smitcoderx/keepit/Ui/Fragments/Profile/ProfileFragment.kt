@@ -27,7 +27,5 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
                 binding.ivDrop.rotationX = 0f
             }
         }
-
     }
-
 }
